@@ -11,7 +11,7 @@ from flask import render_template, request, redirect, url_for,jsonify,g,session
 from app import db
 
 from flask.ext.wtf import Form 
-from wtforms.fields import TextField # other fields include PasswordField 
+from wtforms.fields import TextField, PasswordField
 from wtforms.validators import Required, Email
 from app.models import Myprofile
 from app.forms import LoginForm
@@ -25,7 +25,7 @@ class ProfileForm(Form):
      first_name = TextField('First Name', validators=[Required()])
      last_name = TextField('Last Name', validators=[Required()])
      username = TextField('Username', validators=[Required()])
-     password = TextField('Password', validators=[Required()])
+     password = PasswordField('Password', validators=[Required()])
      # evil, don't do this
    # image = TextField('Image', validators=[Required(), Email()])
 
